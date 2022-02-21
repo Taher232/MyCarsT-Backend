@@ -19,11 +19,11 @@ app.get("/api/cars/getallcars",async (req, res) => {
   res.json(carsData);
 });
 
-app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+//app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
-});
+//app.get("*", (req, res) => {
+  //res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+//s});
 
 
 app.listen(port, () => console.log(`Node JS Server Started in Port ${port}`));
