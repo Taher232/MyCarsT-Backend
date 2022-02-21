@@ -1,9 +1,8 @@
 
-const app = express()
 const mongoose = require('mongoose');
 //const newLocal = mongoose.connection;
 function connectDB() {
-   mongoose.connect('mongodb+srv://Taher20:991100@taherapp.4d6ge.mongodb.net/Cars?retryWrites=true&w=majority', {
+   mongoose.connect(process.env.DB_URL, {
    useUnifiedTopology: true,
    useNewUrlParser: true
    

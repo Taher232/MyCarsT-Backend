@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
+
 const dbConnection = require("./db");
 const ObjectId = require("mongodb").ObjectId;
 const Car = require("./models/carModel");
@@ -29,5 +29,5 @@ app.use('/',(req,res)=>{
   //res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
 //s});
 
-
+const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`Node JS Server Started in Port ${port}`));
