@@ -1,4 +1,4 @@
-const express = require('express')
+
 const app = express()
 const mongoose = require('mongoose');
 //const newLocal = mongoose.connection;
@@ -82,9 +82,7 @@ function connectDB() {
       console.log('Mongo DB Connection Error')
    })
 }
-app.use('/',(req,res)=>{
-  res.send({message:"hello"})
-})
+
 
 connectDB()
 module.exports = mongoose

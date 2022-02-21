@@ -19,6 +19,10 @@ app.get("/api/cars/getallcars",async (req, res) => {
   res.json(carsData);
 });
 
+app.use('/',(req,res)=>{
+  res.send({message:"hello"})
+})
+
 //app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
 //app.get("*", (req, res) => {
