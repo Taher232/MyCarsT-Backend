@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
+
 const dbConnection = require("./db");
 const ObjectId = require("mongodb").ObjectId;
 const Car = require("./models/carModel");
@@ -19,11 +19,18 @@ app.get("/api/cars/getallcars",async (req, res) => {
   res.json(carsData);
 });
 
-app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+app.use('/',(req,res)=>{
+  res.send({message:"hello"})
+})
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
-});
+//app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
+//app.get("*", (req, res) => {
+  //res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+//s});
 
+const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`Node JS Server Started in Port ${port}`));
+
+
+// update app

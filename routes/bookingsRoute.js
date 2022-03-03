@@ -33,8 +33,6 @@ router.post("/booKCar", async (req, res) => {
     if (payment) {
       
       const userInfo = await User.find({_id: token.user});
-
-
       req.body.transactionId = payment.id;
       const newbooking = new Booking(req.body);
       await newbooking.save();
@@ -70,4 +68,4 @@ router.get("/getAllBookings", async (req, res) => {
 });
 module.exports = router;
  //
- //
+ // uP
