@@ -1,19 +1,16 @@
-
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 //const newLocal = mongoose.connection;
 function connectDB() {
-   mongoose.connect(process.env.DB_URL, {
-   useUnifiedTopology: true,
-   useNewUrlParser: true
-   
-   })
+  mongoose.connect(process.env.DB_URL, {
+    useUnifiedTopology: { limit: "30mb", extends: true },
+    useNewUrlParser: { limit: "30mb", extends: true },
+  });
 
-   const connection = mongoose.connection;
-   connection.on('connected', async () => {
+  const connection = mongoose.connection;
+  connection.on("connected", async () => {
+    console.log("Mongo DB  Connection successfull");
 
-      console.log('Mongo DB  Connection successfull')
-
-      /* const carsData = [
+    /* const carsData = [
          {
            _id: "61d1f4cdc144068a5ae8ba8e",
            image: "/images/CitroenC3.jpg",
@@ -76,12 +73,11 @@ function connectDB() {
       const car2 = new Car(car);
       await car2.save();
      }); */
-   })
-   connection.on('error', () => {
-      console.log('Mongo DB Connection Error')
-   })
+  });
+  connection.on("error", () => {
+    console.log("Mongo DB Connection Error");
+  });
 }
 
-
-connectDB()
-module.exports = mongoose
+connectDB();
+module.exports = mongoose;
